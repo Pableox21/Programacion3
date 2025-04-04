@@ -1,62 +1,94 @@
 package ejercicio4;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.Period;
+import javax.xml.crypto.Data;
 import java.util.Calendar;
+import java.util.Date;
 
-public class Persona{String nombre;
-    String primer_apellido;
-    String segundo_apellido;
-    Date fechaNacimiento;
-    Integer numeroCI;
+
+public class Persona {
+    String Nombre;
+    String PrimerApellido;
+    String SegundoApellido;
+    Date FechaNacimiento;
+    Integer NumeroCI;
     String complemento;
+ public Persona(){
 
-    public Persona (){
-    }
-    public Persona(String nombre, String primer_apellido, String segundo_apellido, Date fechaNacimiento, Integer numeroCI, String complemento) {
-        this.nombre = nombre;
-        this.primer_apellido = primer_apellido;
-        this.segundo_apellido = segundo_apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.numeroCI = numeroCI;
+ }
+
+    public Persona(String nombre, String primerApellido, String segundoApellido,
+                   Date fechaNacimiento, Integer numeroCI, String complemento) {
+        this. Nombre = nombre;
+        this.PrimerApellido = primerApellido;
+        this.SegundoApellido = segundoApellido;
+        this.FechaNacimiento = fechaNacimiento;
+        this.NumeroCI = numeroCI;
         this.complemento = complemento;
+    }
+    public  Integer CalcularEdad() {
+        Calendar nacimiento = Calendar.getInstance();
+        nacimiento.setTime(FechaNacimiento);
+        Calendar hoy = Calendar.getInstance();
+        int edad= hoy.get(Calendar.YEAR)-nacimiento.get(Calendar.YEAR);
+        if(hoy.get(Calendar.DAY_OF_YEAR)<nacimiento.get(Calendar.DAY_OF_YEAR))
+            edad--;
+        return edad;
+
+    }
+    public boolean ciConComplemento(){
+     if (complemento ==null){
+         return Boolean.FALSE;
+
+     }else {
+         return Boolean.TRUE;
+     }
     }
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
-    public String getPrimer_apellido() {
-        return primer_apellido;
+    public void setNombre(String nombre) {
+        Nombre = nombre;
     }
 
-    public String getSegundo_apellido() {
-        return segundo_apellido;
+    public String getPrimerApellido() {
+        return PrimerApellido;
+    }
+
+    public void setPrimerApellido(String primerApellido) {
+        PrimerApellido = primerApellido;
+    }
+
+    public String getSegundoApellido() {
+        return SegundoApellido;
+    }
+
+    public void setSegundoApellido(String segundoApellido) {
+        SegundoApellido = segundoApellido;
     }
 
     public Date getFechaNacimiento() {
-        return fechaNacimiento;
+        return FechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        FechaNacimiento = fechaNacimiento;
     }
 
     public Integer getNumeroCI() {
-        return numeroCI;
+        return NumeroCI;
+    }
+
+    public void setNumeroCI(Integer numeroCI) {
+        NumeroCI = numeroCI;
     }
 
     public String getComplemento() {
         return complemento;
     }
 
-    private Integer calcularEdad(){
-        Calendar c=Calendar.getInstance();
-        c.setTime(fechaNacimiento);
-    }
-    public Boolean ciConComplemento(){
-        if (complemento==null){
-            return Boolean.FALSE;
-        }else {
-            return Boolean.TRUE;
-        }
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 }
-
