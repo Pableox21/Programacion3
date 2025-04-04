@@ -1,36 +1,19 @@
 package ejercicio4;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
+import java.util.Date;
 
-public class estudiante extends Persona {
-    String codigoSIS;
+public class Estudiante extends Persona{
+    String CodigoSis;
 
-    public estudiante() {
-        super();
-        Persona[] personas = new Persona[18];
-        Scanner scanner = new Scanner(System.in);
+    public Estudiante(String nombre, String primerApellido, String segundoApellido, Date fechaNacimiento, Integer numeroCI, String complemento) {
+        super(nombre, primerApellido, segundoApellido, fechaNacimiento, numeroCI, complemento);
     }
-    public estudiante(String nombre,String codigoSIS)
-        super(String nombre,String primer_apellido,String segundo_apellido,Date fechaNacimiento,Integer numeroCI,String complemento);{
-            this.codigoSIS=codigoSIS;
-    }
-    public void ejecutar() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        for (int i = 0; i < personas.length; i++) {
-            System.out.println("Estudiante" + (i + 1) + ":");
-            System.out.println("Ingrese su nombre= ");
-            String nombre = scanner.nextLine();
-            System.out.println("Ingrese su primerapellido= ");
-            String primer_apellido = scanner.nextLine();
-            System.out.println("Ingrese su segundo_apellido= ");
-            String segundo_apellido = scanner.nextLine();
-            System.out.println("Ingrese su numero de CI= ");
-            Integer numroCI = scanner.nextInt();
-            LocalDate fechaNacimiento = null;
-        }
+    public String getCodigoSis() {
+        return CodigoSis;
+    }
+
+    public void setCodigoSis(String codigoSis) {
+        CodigoSis = codigoSis;
     }
 }
